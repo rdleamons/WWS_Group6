@@ -8,8 +8,8 @@ public class Player : MonoBehaviour
     public int enemyAttack;
 
     public int currentHealth = 0;
-    public int maxHealth = 100;
-    public int enemyHealth = 25;
+    public int maxHealth = 50;
+    public int enemyHealth = 10;
     public bool isAttacking = false;
 
     public bool enemyNear;
@@ -40,6 +40,12 @@ public class Player : MonoBehaviour
         {
             enemyNear = true;
             thisOne = col.gameObject;
+        }
+
+        if (col.CompareTag("AttackBox"))
+        {
+            currentHealth -= 10;
+            healthBar.SetHealth(currentHealth);
         }
     }
 
