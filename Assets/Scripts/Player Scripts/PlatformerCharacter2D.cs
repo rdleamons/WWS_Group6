@@ -106,7 +106,6 @@ namespace UnityStandardAssets._2D
             // Switch the way the player is labelled as facing.
             m_FacingRight = !m_FacingRight;
 
-            //FirePoint not switching?
             transform.Rotate(0f, 180f, 0f);
         }
     }

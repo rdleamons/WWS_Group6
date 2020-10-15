@@ -6,6 +6,8 @@ public class Projectile : MonoBehaviour
 {
     public float speed = 20f;
     public Rigidbody2D rb;
+    public int damage = 10;
+    public Player player;
 
     void Start()
     {
@@ -14,11 +16,12 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Player enemy = col.GetComponent<Player>();
+        Enemy enemy = col.GetComponent<Enemy>();
         if(enemy != null)
         {
-            
+            enemy.TakeDamage(damage);
         }
+
         Destroy(gameObject);
     }
 }

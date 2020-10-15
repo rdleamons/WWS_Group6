@@ -6,29 +6,32 @@ public class EnemyMovement : MonoBehaviour
 {
     public bool inCombat;
     public float wanderTime;
-    public float moveSpeed = 0.25f;
+    public float moveSpeed = 0.5f;
     private float speed = 0;
 
     public Rigidbody2D rb;
-
-    GameObject thePlayer;
-    public Player player;
-
-    GameObject whichEnemy;
     public Animator anim;
-
     public SpriteRenderer enemyRenderer;
 
+    public Player player;
+    GameObject whichEnemy;
+    
     Vector2 movement;
 
     private void Start()
     {
         anim = gameObject.GetComponent<Animator>();
         enemyRenderer = gameObject.GetComponent<SpriteRenderer>();
-
-        thePlayer = GameObject.Find("Player");
-        player = thePlayer.GetComponent<Player>();
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            moveSpeed = 0;
+        }
+    }
+
     private void Update()
     {
         whichEnemy = player.thisOne;
@@ -53,7 +56,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            moveSpeed = 0.25f;
+            moveSpeed = 0.5f;
         }
 
         if (movement.x > 0)
@@ -76,23 +79,6 @@ public class EnemyMovement : MonoBehaviour
             anim.SetBool("xInc", false);
         }
 
-        if (movement.y > 0)
-        {
-            anim.SetBool("yInc", true);
-            anim.SetBool("yDec", false);
-
-        }
-        else if (movement.y < 0)
-        {
-            anim.SetBool("yDec", true);
-            anim.SetBool("yInc", false);
-        }
-        else if (movement.y == 0)
-        {
-            anim.SetBool("yDec", false);
-            anim.SetBool("yInc", false);
-        }
-
         if (speed == 0)
         {
             anim.SetBool("xDec", false);
@@ -113,7 +99,6 @@ public class EnemyMovement : MonoBehaviour
 
     void wander()
     {
-        movement.x = Random.Range(-10f, 10f);
-        movement.y = Random.Range(-10f, 10f);
+        movement.x = Random.Range(-5f, 5f);
     }
 }

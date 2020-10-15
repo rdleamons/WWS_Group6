@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public bool enemyDead;
 
     public GameObject thisOne;
+    Enemy enemy;
 
     public HealthBar healthBar;
 
@@ -39,13 +40,7 @@ public class Player : MonoBehaviour
         if (col.CompareTag("Enemy"))
         {
             enemyNear = true;
-            thisOne = col.gameObject;
-        }
-
-        if (col.CompareTag("AttackBox"))
-        {
-            currentHealth -= 10;
-            healthBar.SetHealth(currentHealth);
+            enemy = col.GetComponent<Enemy>();
         }
     }
 
@@ -58,55 +53,7 @@ public class Player : MonoBehaviour
     }
 
     private void Update()
-    {
-        if ((Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Fire1")) & enemyNear)
-        {
-
-            isAttacking = true;
-            anim.SetBool("IsAttacking", isAttacking);
-
-            attack = Random.Range(1, 16);
-            enemyAttack = Random.Range(1, 11);
-
-            if (enemyAttack >= 5)
-            {
-                currentHealth -= enemyAttack;
-                healthBar.SetHealth(currentHealth);
-
-                StartCoroutine(Flasher(playerRenderer));
-            }
-            enemyHealth -= attack;
-        }
-
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Fire1"))
-        {
-            isAttacking = true;
-            anim.SetBool("IsAttacking", isAttacking);
-        }
-
-        if (Input.GetKeyUp(KeyCode.E) || Input.GetButtonUp("Fire1"))
-        {
-            isAttacking = false;
-            anim.SetBool("IsAttacking", isAttacking);
-        }
-
-        if ((Input.GetKeyUp(KeyCode.E) || Input.GetButtonUp("Fire1")) & enemyNear)
-        {
-            isAttacking = false;
-            anim.SetBool("IsAttacking", isAttacking);
-        }
-
-        if (enemyHealth <= 0)
-        {
-            enemyDead = true;
-            isAttacking = false;
-            anim.SetBool("IsAttacking", isAttacking);
-        }
-        else
-        {
-            enemyDead = false;
-        }
-
+    { 
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;

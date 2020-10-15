@@ -5,37 +5,24 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int currentHealth = 25;
-    public int maxHealth = 25;
+    public int health = 25;
 
-    public bool playerNear;
-    private bool isAttacking = false;
+ //   public GameObject deathEffect;
 
-    public GameObject playerObj;
-    public GameObject enemy;
-
-    GameObject thePlayer;
-    public Player player;
-
-    private Rigidbody2D rb2d;
-    private Animator anim;
-
-    private void Start()
+    public void TakeDamage(int damage)
     {
-        rb2d = gameObject.GetComponent<Rigidbody2D>();
-        anim = gameObject.GetComponent<Animator>();
+        health -= damage;
 
-        thePlayer = GameObject.Find("Player");
-        player = thePlayer.GetComponent<Player>();
-}
-
-    private void Update()
-    {
-        if (player.enemyDead == true)
+        if (health <= 0)
         {
-            player.thisOne.SetActive(false);
-            player.enemyHealth = 25;
+            Die();
         }
+    }
+
+    void Die()
+    {
+        //Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
 }
