@@ -32,6 +32,14 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            moveSpeed = 0.5f;
+        }
+    }
+
     private void Update()
     {
         whichEnemy = player.thisOne;
@@ -47,16 +55,6 @@ public class EnemyMovement : MonoBehaviour
                 wanderTime = Random.Range(1f, 3f);
                 wander();
             }
-        }
-
-        if (player.enemyNear == true)
-        {
-            moveSpeed = 0;
-            anim.SetFloat("Speed", moveSpeed);
-        }
-        else
-        {
-            moveSpeed = 0.5f;
         }
 
         if (movement.x > 0)
