@@ -5,15 +5,24 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int health = 25;
+    public int maxHealth = 25;
+    public int currentHealth = 0;
+    public HealthBar healthBar;
 
- //   public GameObject deathEffect;
+    //   public GameObject deathEffect;
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+    }
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
 
-        if (health <= 0)
+        if (currentHealth <= 0)
         {
             Die();
         }
