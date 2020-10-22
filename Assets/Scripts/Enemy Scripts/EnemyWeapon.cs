@@ -10,11 +10,21 @@ public class EnemyWeapon : MonoBehaviour
     public Player player;
     public HealthBar healthBar;
 
+    private float activateTime = 1.5f;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
         {
-            Shoot();
+            InvokeRepeating("Shoot", activateTime, activateTime);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player"))
+        {
+            CancelInvoke("Shoot");
         }
     }
 

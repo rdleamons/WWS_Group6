@@ -14,6 +14,7 @@ public class EnemyMovement : MonoBehaviour
     public SpriteRenderer enemyRenderer;
 
     public Player player;
+    public EnemyWeapon weapon;
     GameObject whichEnemy;
     
     Vector2 movement;
@@ -63,6 +64,7 @@ public class EnemyMovement : MonoBehaviour
             anim.SetBool("xDec", false);
 
             enemyRenderer.flipX = false;
+            weapon.transform.Rotate(0f, 0f, 0f);
         }
         else if (movement.x < 0)
         {
@@ -70,6 +72,7 @@ public class EnemyMovement : MonoBehaviour
             anim.SetBool("xInc", false);
 
             enemyRenderer.flipX = true;
+            weapon.transform.Rotate(0f, 180f, 0f);
         }
         else if (movement.x == 0)
         {

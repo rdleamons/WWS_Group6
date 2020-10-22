@@ -6,8 +6,8 @@ public class EnemyProjectile : MonoBehaviour
 {
     public float speed = 20f;
     public Rigidbody2D rb;
-    public int damage = 10;
-   
+    Enemy enemy;
+
     void Start()
     {
         rb.velocity = transform.right * speed;
@@ -16,7 +16,7 @@ public class EnemyProjectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         Player player = col.GetComponent<Player>();
-        if (player != null)
+        if (col.CompareTag("PlayerBody"))
         {
             player.takeDamage();
         }
