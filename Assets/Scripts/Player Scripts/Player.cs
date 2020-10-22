@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -42,6 +43,11 @@ public class Player : MonoBehaviour
             enemyNear = true;
             enemy = col.GetComponent<Enemy>();
         }
+
+        if(col.CompareTag("Killzone"))
+        {
+            die();
+        }
     }
 
     public void OnTriggerExit2D(Collider2D col)
@@ -65,15 +71,15 @@ public class Player : MonoBehaviour
         }
     }
 
-    void die()
+    public void takeDamage()
     {
-        Application.LoadLevel("Main");
+        currentHealth -= 5;
+        healthBar.SetHealth(currentHealth);
+
     }
 
-    IEnumerator Flasher(SpriteRenderer spriteRenderer)
+    void die()
     {
-        playerRenderer.material.color = Color.red;
-        yield return new WaitForSeconds(.1f);
-        playerRenderer.material.color = originalColor;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
