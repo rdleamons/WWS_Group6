@@ -35,7 +35,8 @@ public class EnemyWeapon : MonoBehaviour
 
     void Shoot()
     {
-        firePoint.transform.LookAt(target); 
         Instantiate(fireballPrefab, firePoint.position, firePoint.rotation);
+        firePoint.transform.LookAt(target); 
+        
     }
 }
