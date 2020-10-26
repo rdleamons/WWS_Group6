@@ -7,8 +7,7 @@ public class EnemyWeapon : MonoBehaviour
     public Transform firePoint;
     public GameObject fireballPrefab;
     public Enemy enemy;
-    public Player player;
-    public HealthBar healthBar;
+    public Transform target;
 
     private float activateTime = 1.5f;
 
@@ -16,7 +15,7 @@ public class EnemyWeapon : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            InvokeRepeating("Shoot", activateTime, activateTime);
+            InvokeRepeating("Shoot", activateTime, activateTime);  
         }
     }
 
@@ -36,6 +35,7 @@ public class EnemyWeapon : MonoBehaviour
 
     void Shoot()
     {
+        firePoint.transform.LookAt(target); 
         Instantiate(fireballPrefab, firePoint.position, firePoint.rotation);
     }
 }

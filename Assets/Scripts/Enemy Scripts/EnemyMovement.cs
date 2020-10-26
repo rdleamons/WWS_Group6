@@ -7,7 +7,6 @@ public class EnemyMovement : MonoBehaviour
     public bool inCombat;
     public float wanderTime;
     public float moveSpeed = 0.5f;
-    private float speed = 0;
 
     public Rigidbody2D rb;
     public Animator anim;
@@ -59,7 +58,6 @@ public class EnemyMovement : MonoBehaviour
             anim.SetBool("xDec", false);
 
             enemyRenderer.flipX = false;
-            //weapon.transform.Rotate(0f, 0f, 0f);
         }
         else if (movement.x < 0)
         {
@@ -67,7 +65,6 @@ public class EnemyMovement : MonoBehaviour
             anim.SetBool("xInc", false);
 
             enemyRenderer.flipX = true;
-            //weapon.transform.Rotate(0f, 180f, 0f);
         }
         else if (movement.x == 0)
         {
@@ -75,7 +72,7 @@ public class EnemyMovement : MonoBehaviour
             anim.SetBool("xInc", false);
         }
 
-        if (speed == 0)
+        if (moveSpeed == 0)
         {
             anim.SetBool("xDec", false);
             anim.SetBool("xInc", false);
@@ -85,9 +82,8 @@ public class EnemyMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-        speed = moveSpeed;
 
-        anim.SetFloat("Speed", speed);
+        anim.SetFloat("Speed", moveSpeed);
        
     }
 
