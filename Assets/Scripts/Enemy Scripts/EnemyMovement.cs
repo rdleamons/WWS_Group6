@@ -14,22 +14,29 @@ public class EnemyMovement : MonoBehaviour
     public SpriteRenderer enemyRenderer;
 
     public Player player;
-    public EnemyWeapon weapon;
+    public EnemyProjectile weapon;
     GameObject whichEnemy;
     
     Vector2 movement;
+    public Vector2 target;
 
     private void Start()
     {
+        //target = GameObject.FindWithTag("Player").transform;
         anim = gameObject.GetComponent<Animator>();
         enemyRenderer = gameObject.GetComponent<SpriteRenderer>();
+
+        wanderTime = Random.Range(1f, 3f);
+        StartCoroutine("wander");
+       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            moveSpeed = 0;
+            moveSpeed = 0.0f;
+            StopCoroutine("wander");
         }
     }
 
@@ -38,6 +45,7 @@ public class EnemyMovement : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             moveSpeed = 0.5f;
+            StartCoroutine("wander");
         }
     }
 
@@ -45,26 +53,13 @@ public class EnemyMovement : MonoBehaviour
     {
         whichEnemy = player.thisOne;
 
-        if (player.enemyDead == false)
-        {
-            if(wanderTime > 0)
-            {
-                wanderTime -= Time.deltaTime;
-            }
-            else
-            {
-                wanderTime = Random.Range(1f, 3f);
-                wander();
-            }
-        }
-
         if (movement.x > 0)
         {
             anim.SetBool("xInc", true);
             anim.SetBool("xDec", false);
 
             enemyRenderer.flipX = false;
-            weapon.transform.Rotate(0f, 0f, 0f);
+            //weapon.transform.Rotate(0f, 0f, 0f);
         }
         else if (movement.x < 0)
         {
@@ -72,7 +67,7 @@ public class EnemyMovement : MonoBehaviour
             anim.SetBool("xInc", false);
 
             enemyRenderer.flipX = true;
-            weapon.transform.Rotate(0f, 180f, 0f);
+            //weapon.transform.Rotate(0f, 180f, 0f);
         }
         else if (movement.x == 0)
         {
@@ -84,15 +79,13 @@ public class EnemyMovement : MonoBehaviour
         {
             anim.SetBool("xDec", false);
             anim.SetBool("xInc", false);
-            anim.SetBool("yDec", false);
-            anim.SetBool("yInc", false);
         }
     }
 
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-        speed = movement.magnitude / Time.deltaTime;
+        speed = moveSpeed;
 
         anim.SetFloat("Speed", speed);
        

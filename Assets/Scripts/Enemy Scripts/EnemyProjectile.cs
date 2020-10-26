@@ -7,6 +7,7 @@ public class EnemyProjectile : MonoBehaviour
     public float speed = 20f;
     public Rigidbody2D rb;
     Enemy enemy;
+    Player player;
 
     void Start()
     {
@@ -15,10 +16,10 @@ public class EnemyProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Player player = col.GetComponent<Player>();
         if (col.CompareTag("PlayerBody"))
         {
             player.takeDamage();
+            Destroy(gameObject);
         }
         
         if (col.CompareTag("Killzone"))

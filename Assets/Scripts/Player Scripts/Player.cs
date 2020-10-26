@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetHealth(maxHealth);
     }
 
     public void OnTriggerEnter2D(Collider2D col)

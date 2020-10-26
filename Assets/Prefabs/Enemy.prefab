@@ -109,11 +109,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4775946633992382486}
   - component: {fileID: 4775946633992382487}
-  - component: {fileID: 4775946633992382696}
-  - component: {fileID: 4775946633992382483}
+  - component: {fileID: 4775946633992382482}
   - component: {fileID: 4775946633992382485}
   - component: {fileID: 4775946633992382484}
-  - component: {fileID: 4775946633992382482}
+  - component: {fileID: 4775946633992382696}
+  - component: {fileID: 4775946633992382483}
+  - component: {fileID: 1434879174738573327}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -188,40 +189,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4775946633992382696
-MonoBehaviour:
+--- !u!95 &4775946633992382482
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4775946633992382697}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca28b8aae91a92b4691d4d3e53fb20f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 25
-  currentHealth: 0
-  healthBar: {fileID: 3346758557068840747}
---- !u!114 &4775946633992382483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4775946633992382697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fdae75e43277fc4b8a054c1558cfc7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inCombat: 0
-  wanderTime: 0
-  moveSpeed: 0.5
-  rb: {fileID: 4775946633992382484}
-  anim: {fileID: 4775946633992382482}
-  enemyRenderer: {fileID: 4775946633992382487}
-  player: {fileID: 0}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &4775946633992382485
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -269,25 +255,59 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!95 &4775946633992382482
-Animator:
-  serializedVersion: 3
+--- !u!114 &4775946633992382696
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4775946633992382697}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca28b8aae91a92b4691d4d3e53fb20f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 25
+  currentHealth: 0
+  healthBar: {fileID: 3346758557068840747}
+--- !u!114 &4775946633992382483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4775946633992382697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fdae75e43277fc4b8a054c1558cfc7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inCombat: 0
+  wanderTime: 0
+  moveSpeed: 0.5
+  rb: {fileID: 4775946633992382484}
+  anim: {fileID: 4775946633992382482}
+  enemyRenderer: {fileID: 4775946633992382487}
+  player: {fileID: 0}
+  weapon: {fileID: 0}
+  target: {fileID: 0}
+--- !u!114 &1434879174738573327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4775946633992382697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca80b20c3592d32448380354012763b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 3766329619882656520}
+  fireballPrefab: {fileID: 2495626282440327740, guid: 2aedd6fcb43cfae46a6c883acf2dbd5c, type: 3}
+  enemy: {fileID: 4775946633992382696}
+  player: {fileID: 0}
+  healthBar: {fileID: 3346758557068840747}
 --- !u!1 &7409040544236459296
 GameObject:
   m_ObjectHideFlags: 0
