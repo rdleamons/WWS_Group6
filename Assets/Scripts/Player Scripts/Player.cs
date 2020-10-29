@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int attack;
-
     public int currentHealth = 0;
     public int maxHealth = 25;
 
@@ -60,7 +58,6 @@ public class Player : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
-
     }
 
     void die()
