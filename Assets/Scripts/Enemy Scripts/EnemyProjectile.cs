@@ -8,6 +8,9 @@ public class EnemyProjectile : MonoBehaviour
     public Rigidbody2D rb;
     public Enemy enemy;
     public Player player;
+    public SpriteRenderer enemyRend;
+
+    private int damage = 5;
 
     void Start()
     {
@@ -16,22 +19,17 @@ public class EnemyProjectile : MonoBehaviour
 
     private void Update()
     {
-        //look at enemy rotation
-        if(enemy.transform.position.x > 0)
-        {
+        if(enemyRend.flipX == true)
             rb.velocity = transform.right * speed;
-        }
         else
-        {
             rb.velocity = -transform.right * speed;
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("PlayerBody"))
+        if (col.CompareTag("Player"))
         {
-            player.takeDamage();
+            player.takeDamage(damage);
             Destroy(gameObject);
         }
         

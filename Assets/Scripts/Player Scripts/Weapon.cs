@@ -35,7 +35,7 @@ public class Weapon : MonoBehaviour
         }
         else if (fate == 10)
         {
-            chicken(player.playerRenderer);
+            StartCoroutine(chicken(player.playerRenderer));
             Debug.Log("Chicken");
         }
     }

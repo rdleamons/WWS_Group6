@@ -138,3 +138,4 @@ MonoBehaviour:
   rb: {fileID: 8082150946122939686}
   enemy: {fileID: 4775946633992382696, guid: 7decf8e7d32bbca45b1e75f401265e9b, type: 3}
   player: {fileID: 894047657565987138, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
+  enemyRend: {fileID: 4775946633992382487, guid: 7decf8e7d32bbca45b1e75f401265e9b, type: 3}

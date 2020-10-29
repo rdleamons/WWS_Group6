@@ -6,17 +6,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int attack;
-    public int enemyAttack;
 
     public int currentHealth = 0;
-    public int maxHealth = 50;
-    public int enemyHealth = 10;
-    public bool isAttacking = false;
+    public int maxHealth = 25;
 
-    public bool enemyNear;
-    public bool enemyDead;
-
-    public GameObject thisOne;
     Enemy enemy;
 
     public HealthBar healthBar;
@@ -41,21 +34,12 @@ public class Player : MonoBehaviour
     {
         if (col.CompareTag("Enemy"))
         {
-            enemyNear = true;
             enemy = col.GetComponent<Enemy>();
         }
 
         if(col.CompareTag("Killzone"))
         {
             die();
-        }
-    }
-
-    public void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.CompareTag("Enemy"))
-        {
-            enemyNear = false;
         }
     }
 
@@ -72,9 +56,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void takeDamage()
+    public void takeDamage(int damage)
     {
-        currentHealth -= 5;
+        currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
 
     }

@@ -50,8 +50,6 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        whichEnemy = player.thisOne;
-
         if (movement.x > 0)
         {
             anim.SetBool("xInc", true);
@@ -87,8 +85,8 @@ public class EnemyMovement : MonoBehaviour
        
     }
 
-    void wander()
+    IEnumerator wander()
     {
-        movement.x = Random.Range(-5f, 5f);
+        yield return movement.x = Random.Range(-5f, 5f);
     }
 }

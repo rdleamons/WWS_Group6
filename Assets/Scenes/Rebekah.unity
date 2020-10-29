@@ -180,6 +180,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 114.392296, y: 0.041299522}
   m_EdgeRadius: 0
+--- !u!114 &257515098 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1401957463962702530, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
+  m_PrefabInstance: {fileID: 321289646}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99029a14f7c33e44597cc401c736649f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &321289646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -193,7 +204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
       propertyPath: m_LocalPosition.x
@@ -241,7 +252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 812007643166808702, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -258,7 +269,7 @@ PrefabInstance:
     - target: {fileID: 894047657565987138, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
       propertyPath: healthBar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 257515098}
     - target: {fileID: 894047657565987138, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
       propertyPath: anim
       value: 
@@ -269,7 +280,7 @@ PrefabInstance:
       objectReference: {fileID: 1317192839}
     - target: {fileID: 1190070404240007294, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1401957463799767990, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
       propertyPath: m_AnchorMax.x
@@ -343,6 +354,14 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2567159662423162280, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3985792325429771317, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5382576238431707188, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -358,6 +377,10 @@ PrefabInstance:
     - target: {fileID: 6620721862789231892, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
       propertyPath: healthBar
       value: 
+      objectReference: {fileID: 257515098}
+    - target: {fileID: 7770286381560672298, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
@@ -981,9 +1004,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireballKillzoneLeft
       objectReference: {fileID: 0}
+    - target: {fileID: 1262304373583309321, guid: 75fcb3e74cb8c474a9437d531d3867fc, type: 3}
+      propertyPath: m_TagString
+      value: Killzone
+      objectReference: {fileID: 0}
     - target: {fileID: 1262304373583309367, guid: 75fcb3e74cb8c474a9437d531d3867fc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -54.72972
+      value: -59.83
       objectReference: {fileID: 0}
     - target: {fileID: 1262304373583309367, guid: 75fcb3e74cb8c474a9437d531d3867fc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1042,6 +1069,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1263000702}
+    - target: {fileID: 1434879174738573327, guid: 7decf8e7d32bbca45b1e75f401265e9b, type: 3}
+      propertyPath: enemyProjectile
+      value: 
+      objectReference: {fileID: 4005773627285020098, guid: 2aedd6fcb43cfae46a6c883acf2dbd5c, type: 3}
     - target: {fileID: 3346758556570107487, guid: 7decf8e7d32bbca45b1e75f401265e9b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

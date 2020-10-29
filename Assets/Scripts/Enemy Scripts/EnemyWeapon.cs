@@ -7,7 +7,6 @@ public class EnemyWeapon : MonoBehaviour
     public Transform firePoint;
     public GameObject fireballPrefab;
     public Enemy enemy;
-    public Transform target;
 
     private float activateTime = 1.5f;
 
@@ -36,7 +35,5 @@ public class EnemyWeapon : MonoBehaviour
     void Shoot()
     {
         Instantiate(fireballPrefab, firePoint.position, firePoint.rotation);
-        firePoint.transform.LookAt(target); 
-        
     }
 }
