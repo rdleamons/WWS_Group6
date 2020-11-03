@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.6034732, z: 0}
+  m_LocalPosition: {x: 0, y: -0.99, z: 0}
   m_LocalScale: {x: 0.56448287, y: 0.5644837, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
@@ -115,7 +115,7 @@ SpriteRenderer:
   m_SortingLayerID: -1783731295
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 8fb98a6035269e64a998f9b56828fc4f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a0c8824ae4ebb943b44c48e43e0e0ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -158,18 +158,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.013263732, y: 0.21241713}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.375, y: 1.375}
+    oldSize: {x: 2.75, y: 2.75}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.68}
+  m_Size: {x: 0.47135586, y: 1.7899821}
   m_EdgeRadius: 0
 --- !u!58 &5800000
 CircleCollider2D:
@@ -184,9 +184,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.45}
+  m_Offset: {x: -0.019437961, y: -0.87345576}
   serializedVersion: 2
-  m_Radius: 0.16
+  m_Radius: 0.29145226
 --- !u!50 &5000000
 Rigidbody2D:
   serializedVersion: 4
@@ -267,7 +267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852d50b3ec4064a47b6bb69e2dde61f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
   currentHealth: 0
   maxHealth: 50
   healthBar: {fileID: 1401957463962702530}
@@ -584,11 +583,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7797280184715131204, guid: 41a37968fc8a0e54d8c62c5c483755f5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -485.48
+      value: -485.69
       objectReference: {fileID: 0}
     - target: {fileID: 7797280184715131204, guid: 41a37968fc8a0e54d8c62c5c483755f5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -205.22
+      value: -203.96
       objectReference: {fileID: 0}
     - target: {fileID: 7797280184715131204, guid: 41a37968fc8a0e54d8c62c5c483755f5, type: 3}
       propertyPath: m_SizeDelta.x
