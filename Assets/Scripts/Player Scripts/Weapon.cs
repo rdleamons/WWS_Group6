@@ -36,13 +36,12 @@ public class Weapon : MonoBehaviour
         else if (fate == 10)
         {
             StartCoroutine(chicken(player.playerRenderer));
-            Debug.Log("Chicken");
         }
     }
 
     IEnumerator chicken(SpriteRenderer spriteRenderer)
     {
-        player.playerRenderer.material.color = Color.red;
+        player.playerRenderer.material.color = Color.blue;
         yield return new WaitForSeconds(1.0f);
         player.playerRenderer.material.color = Color.white;
     }
