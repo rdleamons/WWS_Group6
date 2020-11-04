@@ -25,12 +25,12 @@ public class Weapon : MonoBehaviour
             Instantiate(fireballPrefab, firePoint.position, firePoint.rotation);
         else if (5 < fate & fate <= 7)
         {
-            player.currentHealth -= 1;
+            player.currentHealth -= 5;
             healthBar.SetHealth(player.currentHealth);
         }
         else if (7 < fate & fate <= 9)
         {
-            player.currentHealth += 2;
+            player.currentHealth += 5;
             healthBar.SetHealth(player.currentHealth);
         }
         else if (fate == 10)

@@ -63,11 +63,19 @@ public class Player : MonoBehaviour
     public void takeDamage(int damage)
     {
         currentHealth -= damage;
+        StartCoroutine(flashDamage(playerRenderer));
         healthBar.SetHealth(currentHealth);
     }
 
     void die()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    IEnumerator flashDamage(SpriteRenderer spriteRenderer)
+    {
+        spriteRenderer.material.color = Color.red;
+        yield return new WaitForSeconds(1.0f);
+        spriteRenderer.material.color = Color.white;
     }
 }
