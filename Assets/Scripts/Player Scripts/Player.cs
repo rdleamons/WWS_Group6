@@ -39,12 +39,6 @@ public class Player : MonoBehaviour
         {
             die();
         }
-
-        if(col.CompareTag("Gem"))
-        {
-            //You win!
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
     }
 
     private void Update()
