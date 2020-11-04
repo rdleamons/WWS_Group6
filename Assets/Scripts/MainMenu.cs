@@ -18,18 +18,12 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
-        Debug.Log("Start Game");
         SceneManager.LoadScene("Main");
     }
 
     public void Credits()
     {
         SceneManager.LoadScene("Credits");
-    }
-
-    public void HowtoPlay()
-    {
-        SceneManager.LoadScene("HowToPlay");
     }
 
     public void QuitGame()
