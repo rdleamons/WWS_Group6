@@ -786,7 +786,7 @@ RectTransform:
   m_Children:
   - {fileID: 1380825777}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1087,7 +1087,7 @@ RectTransform:
   - {fileID: 1332331755}
   - {fileID: 1796741222}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1108,8 +1108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newGameButton: {fileID: 1332331756}
   creditsButton: {fileID: 0}
-  htpButton: {fileID: 0}
   quitButton: {fileID: 1796741223}
+  pauseMenuUI: {fileID: 7688252520398444079, guid: 3ba1419688b3b6c48afaecd9602308d8, type: 3}
 --- !u!114 &1900383891
 MonoBehaviour:
   m_ObjectHideFlags: 0

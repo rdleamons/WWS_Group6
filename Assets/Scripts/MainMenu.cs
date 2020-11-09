@@ -9,11 +9,7 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
 
     public Button newGameButton;
-
     public Button creditsButton;
-
-    public Button htpButton;
-
     public Button quitButton;
 
     public void NewGame()
