@@ -86,6 +86,6 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator wander()
     {
-        yield return movement.x = Random.Range(-3f, 3f);
+        yield return movement.x = Random.Range(-5f, 5f);
     }
 }
