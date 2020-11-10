@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public bool inCombat;
-    public float wanderTime;
     public float moveSpeed = 0.5f;
 
     public Rigidbody2D rb;
@@ -14,20 +12,16 @@ public class EnemyMovement : MonoBehaviour
 
     public Player player;
     public EnemyProjectile weapon;
-    GameObject whichEnemy;
     
     Vector2 movement;
     public Vector2 target;
 
     private void Start()
     {
-        //target = GameObject.FindWithTag("Player").transform;
         anim = gameObject.GetComponent<Animator>();
         enemyRenderer = gameObject.GetComponent<SpriteRenderer>();
 
-        wanderTime = Random.Range(1f, 3f);
         StartCoroutine("wander");
-       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,6 +30,11 @@ public class EnemyMovement : MonoBehaviour
         {
             moveSpeed = 0.0f;
             StopCoroutine("wander");
+        }
+
+        if(collision.CompareTag("TurnAround"))
+        {
+            movement.x = -movement.x;
         }
     }
 
@@ -87,6 +86,6 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator wander()
     {
-        yield return movement.x = Random.Range(-5f, 5f);
+        yield return movement.x = Random.Range(-3f, 3f);
     }
 }

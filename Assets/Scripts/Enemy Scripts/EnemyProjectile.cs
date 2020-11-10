@@ -32,12 +32,6 @@ public class EnemyProjectile : MonoBehaviour
             player.takeDamage(damage);
             Destroy(gameObject);
         }
-        /*
-        if (col.CompareTag("Player"))
-        {
-            player.takeDamage(damage);
-            
-        }*/
         
         if (col.CompareTag("Killzone"))
         {
