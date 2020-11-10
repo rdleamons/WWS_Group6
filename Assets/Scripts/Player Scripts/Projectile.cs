@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
             enemy.TakeDamage(damage);
         }
 
-        if(col != col.CompareTag("Player"))
+        if(col != col.CompareTag("Player") & col != col.CompareTag("Background"))
         {
             Destroy(gameObject);
         }
