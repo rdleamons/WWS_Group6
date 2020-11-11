@@ -14,7 +14,6 @@ public class EnemyMovement : MonoBehaviour
     public EnemyProjectile weapon;
     
     Vector2 movement;
-    public Vector2 target;
 
     private void Start()
     {

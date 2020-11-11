@@ -7,6 +7,7 @@ public class EnemyProjectile : MonoBehaviour
     public float speed = 20f;
     public Rigidbody2D rb;
     public Enemy enemy;
+    public EnemyMovement enemyWalk;
     public SpriteRenderer enemyRend;
 
     private int damage = 5;
