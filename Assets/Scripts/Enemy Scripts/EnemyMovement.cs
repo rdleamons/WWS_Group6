@@ -12,7 +12,8 @@ public class EnemyMovement : MonoBehaviour
 
     public Player player;
     public EnemyProjectile weapon;
-    
+    private bool m_FacingRight = true;
+
     Vector2 movement;
 
     private void Start()
@@ -28,6 +29,7 @@ public class EnemyMovement : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             moveSpeed = 0.0f;
+            anim.SetBool("isAttacking", true);
             StopCoroutine("wander");
         }
 
@@ -43,25 +45,25 @@ public class EnemyMovement : MonoBehaviour
         {
             moveSpeed = 0.5f;
             StartCoroutine("wander");
+            anim.SetBool("isAttacking", true);
         }
     }
 
     private void Update()
     {
-        if (movement.x > 0)
+        if (movement.x > 0 && !m_FacingRight)
         {
-            anim.SetBool("xInc", true);
-            anim.SetBool("xDec", false);
-
-            enemyRenderer.flipX = false;
+            // ... flip the player.
+            Flip();
         }
-        else if (movement.x < 0)
+        // Otherwise if the input is moving the player left and the player is facing right...
+        else if (movement.x < 0 && m_FacingRight)
         {
-            anim.SetBool("xDec", true);
-            anim.SetBool("xInc", false);
-
-            enemyRenderer.flipX = true;
+            // ... flip the player.
+            Flip();
         }
+
+        /*
         else if (movement.x == 0)
         {
             anim.SetBool("xDec", false);
@@ -73,6 +75,7 @@ public class EnemyMovement : MonoBehaviour
             anim.SetBool("xDec", false);
             anim.SetBool("xInc", false);
         }
+        */
     }
 
     private void FixedUpdate()
@@ -80,11 +83,18 @@ public class EnemyMovement : MonoBehaviour
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
         anim.SetFloat("Speed", moveSpeed);
-       
     }
 
     IEnumerator wander()
     {
         yield return movement.x = Random.Range(-5f, 5f);
+    }
+
+    private void Flip()
+    {
+        // Switch the way the player is labelled as facing.
+        m_FacingRight = !m_FacingRight;
+
+        transform.Rotate(0f, 180f, 0f);
     }
 }
