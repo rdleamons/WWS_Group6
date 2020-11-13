@@ -9,11 +9,24 @@ public class Weapon : MonoBehaviour
     public Player player;
     public HealthBar healthBar;
 
+    private Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     private void Update()
     {
         if (Input.GetButtonDown("Fire1") | Input.GetKeyDown(KeyCode.E))
         {
+            anim.SetBool("isAttacking", true);
             Shoot();
+        }
+
+        if(Input.GetButtonUp("Fire1") | Input.GetKeyDown(KeyCode.E))
+        {
+            anim.SetBool("isAttacking", false);
         }
     }
 
@@ -41,8 +54,8 @@ public class Weapon : MonoBehaviour
 
     IEnumerator chicken(SpriteRenderer spriteRenderer)
     {
-        player.playerRenderer.material.color = Color.blue;
+        anim.SetBool("missfire", true);
         yield return new WaitForSeconds(1.0f);
-        player.playerRenderer.material.color = Color.white;
+        anim.SetBool("missfire", false);
     }
 }
