@@ -45,7 +45,7 @@ public class EnemyMovement : MonoBehaviour
         {
             moveSpeed = 0.5f;
             StartCoroutine("wander");
-            anim.SetBool("isAttacking", true);
+            anim.SetBool("isAttacking", false);
         }
     }
 
@@ -53,36 +53,20 @@ public class EnemyMovement : MonoBehaviour
     {
         if (movement.x > 0 && !m_FacingRight)
         {
-            // ... flip the player.
             Flip();
         }
-        // Otherwise if the input is moving the player left and the player is facing right...
+
         else if (movement.x < 0 && m_FacingRight)
         {
-            // ... flip the player.
             Flip();
         }
-
-        /*
-        else if (movement.x == 0)
-        {
-            anim.SetBool("xDec", false);
-            anim.SetBool("xInc", false);
-        }
-
-        if (moveSpeed == 0)
-        {
-            anim.SetBool("xDec", false);
-            anim.SetBool("xInc", false);
-        }
-        */
     }
 
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
-        anim.SetFloat("Speed", moveSpeed);
+        //anim.SetFloat("Speed", moveSpeed);
     }
 
     IEnumerator wander()
